@@ -134,7 +134,7 @@ def main(input_threshold: float = THRESHOLD, visualise: bool=True) -> float:
     if(__name__ != "__main__"):
         THRESHOLD = input_threshold
     else:
-        THRESHOLD = float(input("Input threshold (percentage of similar cells, a cell wants next to it) (0-1): "))
+        THRESHOLD = float(input("\nInput threshold (percentage of similar cells, a cell wants next to it) (0-1): "))
         GRID_SIZE = int(input("Grid size length (100-200 recommended): "))
 
     board = np.random.choice([0,1,2], size=(GRID_SIZE, GRID_SIZE), p=PROBABILITY_DISTRIBUTION)
