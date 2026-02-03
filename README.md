@@ -67,12 +67,12 @@ How the model goes:
 - This repeats till there are no unhappy cells, or till the simulation stagnates.
 
 ## Inferences
-1. At low thresholds (1-30$), individuals are homogenously mixed.
-2. After ~30-35%: communities can visibily be seen as being more segregated than not.
+1. At low thresholds (1-30%), individuals are homogenously mixed.
+2. After ~30-35%: communities can visibly be seen as being more segregated than not.
 3. Segregation (and similarly size of communities) keeps increasing with increase in threshold.
 4. At 75% and greater: The amount of like cells an individual wants exceeds a number that isn't possible. Say if an individual wants 90% of like cells, that isn't possible, as out of the 8 surrounding cells, even if 1 is the other colour it will turn it 87.5%, so all cells surrounding an individual NEED to be the same colour. Which isn't possible if the grid is 40-40 with the number of the 2 types of people. No stable communities can be formed, since each time the cells relocate, they are always unhappy.
 
 ## Possible Improvements
 - The code doesn't strictly stop when number of unhappy people reaches 0, it stops using 2 rules: (1) If at the last 50 steps, there isn't sufficient movement in the number of unhappy people (to combat stagnation) (2) If there is movement but the min(number of unhappy people) doesn't change in 200 steps (to combat oscillating behaviour)
 - The measure of segregation is averaging the number of like people in a person's neighbourhood, which only captures local interactions. Better measures can be used, such as the 'Interface Percentage' which as far as i can tell is the standard; or number of clusters (through something like Hoshen-Kopelman)
-- Right now if agents are unhappy, they randomly move to another cell. This doesn't model real life behaviour as agents wouldn't mode to a cell that would make the situation worse. So better to keep track of ideal cells for an agent, and move them there; if no ideal cells, only then move the agent randomly (or some other similar method).
+- Right now if agents are unhappy, they randomly move to another cell. This doesn't model real life behaviour as agents wouldn't move to a cell that would make the situation worse. So better to keep track of ideal cells for an agent, and move them there; if no ideal cells, only then move the agent randomly (or some other similar method).
