@@ -10,14 +10,14 @@ import matplotlib.pyplot as plt
 from matplotlib.widgets import RangeSlider
 import pygame 
 
-GRID_SIZE = 1000
+GRID_SIZE = 200
 PROBABILITY_DISTRIBUTION = (0.2,0.4,0.4) # 0, 1, 2
 THRESHOLD = 0.7
 # Standard deviation should be less than 0.5% of total population
 STABILITY_STD_THRESHOLD = 0.005*((PROBABILITY_DISTRIBUTION[1] + PROBABILITY_DISTRIBUTION[2])*(GRID_SIZE**2))
 PATIENCE_COUNTER_LIMIT = 200
 
-WINDOW_SIZE = 200
+WINDOW_SIZE = 800
 CELL_SIZE = int(WINDOW_SIZE / GRID_SIZE)
 FPS = 24
 
@@ -131,7 +131,12 @@ def draw_board(screen, board):
 
 def main(input_threshold: float = THRESHOLD, visualise: bool=True) -> float:
 
-    THRESHOLD = input_threshold
+    if(__name__ != "__main__"):
+        THRESHOLD = input_threshold
+    else:
+        THRESHOLD = float(input("Input threshold (percentage of similar cells, a cell wants next to it) (0-1): "))
+        GRID_SIZE = int(input("Grid size length (100-200 recommended): "))
+
     board = np.random.choice([0,1,2], size=(GRID_SIZE, GRID_SIZE), p=PROBABILITY_DISTRIBUTION)
     initial_unhappy, _ = calculate_board_state(board, THRESHOLD)
     max_unhappy_agents = len(initial_unhappy)
