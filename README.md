@@ -72,6 +72,26 @@ How the model goes:
 3. Segregation (and similarly size of communities) keeps increasing with increase in threshold.
 4. At 75% and greater: The amount of like cells an individual wants exceeds a number that isn't possible. Say if an individual wants 90% of like cells, that isn't possible, as out of the 8 surrounding cells, even if 1 is the other colour it will turn it 87.5%, so all cells surrounding an individual NEED to be the same colour. Which isn't possible if the grid is 40-40 with the number of the 2 types of people. No stable communities can be formed, since each time the cells relocate, they are always unhappy.
 
+## Graphs
+<table>
+    <tr>
+        <td align="center">
+            <img src="uploaded_pics/sm_pic_0.15_d762eb.png" alt="Final board at 15% threshold" width="90%">
+        </td>
+        <td align="center">
+            <img src="uploaded_pics/sm_pic_0.35_8c0fff.png" alt="Final board at 35% threshold" width="90%">
+        </td>
+        <td align="center">
+            <img src="uploaded_pics/sm_pic_0.74_4c79d2.png" alt="Final board at 74% threshold" width="90%">
+        </td>
+    </tr>
+    <tr>
+        <td align = "center"><strong>Mixed (15%)</strong><br>Agents are happy without segregation</td>
+        <td align = "center"><strong>Segregation Begins (35%)</strong><br>Agents are starting to form segregated communities</td>
+        <td align = "center"><strong>Peak Segregation (74%)</strong><br>Agents are as segregated as possible (with the given rules)</td>
+    </tr>
+</table>
+
 ## Possible Improvements
 - The code doesn't strictly stop when number of unhappy people reaches 0, it stops using 2 rules: (1) If at the last 50 steps, there isn't sufficient movement in the number of unhappy people (to combat stagnation) (2) If there is movement but the min(number of unhappy people) doesn't change in 200 steps (to combat oscillating behaviour)
 - The measure of segregation is averaging the number of like people in a person's neighbourhood, which only captures local interactions. Better measures can be used, such as the 'Interface Percentage' which as far as i can tell is the standard; or number of clusters (through something like Hoshen-Kopelman)
