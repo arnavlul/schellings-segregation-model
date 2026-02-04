@@ -1,7 +1,9 @@
 # Schelling's Model of Segregation
 A toroidal-grid implementation of Thomas Schelling's famous model of segregation. This project simulates how even a generally tolerant society (tolerance of each individual is high) can lead to wide scale societal segregation, using `matplotlib` for graphs, `pygame` for simulation, and `multiprocessing` to speed up collection of data.
 
-<img src="uploaded_pics/gif_at_70.gif" width="35%">
+<p align="center">
+    <img src="uploaded_pics/gif_at_70.gif" width="50%">
+</p>
 
 ## Features
 - **Toroidal Grid:** Uses a toroidal (wrap-around) board, simulating an infinite surface to remove any boundary bias.
